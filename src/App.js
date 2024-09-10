@@ -3,18 +3,34 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Contact from './compontes/Contact'; 
 import Footer from './compontes/Footer';
 import Navbar from './compontes/Navbar';
+import TestimonialPage from './compontes/testimonial';
+import Reservation from './compontes/reservation';
+import Services from './compontes/Services';
+import MainNavbar from './compontes/MainNavbar';
+import Home from './compontes/Home';
+
 
 
 function App() {
   return (
     <Router>
       <div>
+        <MainNavbar />
+
         <Navbar />
-        <Contact />
-        {/* <Routes>
+
+        <Routes>
+
+            <Route path="/"  element={<Home />} />
             <Route path="/contact"  element={<Contact />} />
-        </Routes> */}
+            <Route path="/testimonial"  element={<TestimonialPage />} />
+            <Route path="/service"  element={<Services />} />
+            <Route path="/booking"  element={<Reservation />} />
+
+        </Routes>
+        
         <Footer />
+
       </div>
     </Router>
   );
