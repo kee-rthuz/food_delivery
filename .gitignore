@@ -1,0 +1,16 @@
+
+# Node modules
+node_modules/
+
+# Build artifacts
+build/
+dist/
+
+# Log files
+*.log
+
+# Environment variables
+.env
+.env.local
+.env.development
+.env.production
