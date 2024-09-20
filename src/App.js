@@ -8,6 +8,8 @@ import Reservation from './compontes/reservation';
 import Services from './compontes/Services';
 import MainNavbar from './compontes/MainNavbar';
 import Home from './compontes/Home';
+import Menu from './compontes/Menu';
+import OurTeam from './compontes/OurTeam';
 
 
 
@@ -26,6 +28,10 @@ function App() {
             <Route path="/testimonial"  element={<TestimonialPage />} />
             <Route path="/service"  element={<Services />} />
             <Route path="/booking"  element={<Reservation />} />
+            <Route path="/menu"  element={<Menu />} />
+            <Route path="/ourteam"  element={< OurTeam/>} />
+
+
 
         </Routes>
         

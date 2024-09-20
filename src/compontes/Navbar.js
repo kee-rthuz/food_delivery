@@ -127,8 +127,8 @@ const Header = () => {
         {/* Header content */}
         <div className="relative flex-grow flex items-center w-full px-4 md:px-8 lg:px-16">
           {location.pathname === '/' ? (
-            <div className="w-full flex justify-between items-center">
-              <div className="max-w-lg text-white">
+            <div className="w-full flex flex-col lg:flex-row justify-between items-center">
+              <div className="max-w-lg text-white lg:mr-8">
                 <h1 className="text-5xl font-bold mb-6">
                   Enjoy Our <br /> Delicious Meal
                 </h1>
@@ -140,11 +140,11 @@ const Header = () => {
                   BOOK A TABLE
                 </button>
               </div>
-              <div className="hidden lg:block w-1/2">
+              <div className="w-full lg:w-1/2">
                 <img
                   src={mealImage}
                   alt="Delicious Meal"
-                  className="w-full h-auto object-cover"
+                  className="w-full h-auto object-cover animate-slowSpin"
                 />
               </div>
             </div>
