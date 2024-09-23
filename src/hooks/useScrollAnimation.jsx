@@ -27,23 +27,26 @@ const useScrollAnimation = (direction = 'up', threshold = 0.1, distance = 100) =
     };
   }, [threshold]);
 
-  const getTransform = (dir) => {
+  const getTransformValues = (dir) => {
     switch (dir) {
-      case 'up': return `translateY(${distance}px)`;
-      case 'down': return `translateY(-${distance}px)`;
-      case 'left': return `translateX(${distance}px)`;
-      case 'right': return `translateX(-${distance}px)`;
-      default: return 'translate3d(0, 0, 0)';
+      case 'up': return { y: inView ? 0 : distance, x: 0 };
+      case 'down': return { y: inView ? 0 : -distance, x: 0 };
+      case 'left': return { x: inView ? 0 : distance, y: 0 };
+      case 'right': return { x: inView ? 0 : -distance, y: 0 };
+      default: return { x: 0, y: 0 };
     }
   };
 
+  const { x, y } = getTransformValues(direction);
+
   const animationProps = useSpring({
     opacity: inView ? 1 : 0,
-    transform: inView ? 'translate3d(0, 0, 0)' : getTransform(direction),
+    x,
+    y,
     config: { 
-      tension: 10, 
-      friction: 60,
-      duration: 400,
+      mass: 1,
+      tension: 120, 
+      friction: 44,
     },
   });
 
