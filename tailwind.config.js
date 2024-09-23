@@ -13,17 +13,20 @@ module.exports = {
           '0%': { opacity: '0', transform: 'translateY(10px)' },
           '100%': { opacity: '1', transform: 'translateY(0)' },
         },
-
         slowSpin: {
           '0%': { transform: 'rotate(0deg)' },
           '100%': { transform: 'rotate(360deg)' },
+        },
+        fadeInLeft: {
+          '0%': { opacity: '0', transform: 'translateX(-50px)' },
+          '100%': { opacity: '1', transform: 'translateX(0)' },
         },
       },
       animation: {
         fadeDown: 'fadeDown 0.5s ease-out forwards',
         fadeUp: 'fadeUp 0.5s ease-out forwards',
         slowSpin: 'slowSpin 60s linear infinite',
-
+        fadeInLeft: 'fadeInLeft 0.5s ease-out forwards',
       },
     },
   },

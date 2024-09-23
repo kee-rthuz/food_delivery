@@ -1,5 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { EnvelopeIcon } from '@heroicons/react/24/solid';
+
 
 const Contact = () => {
     return (
@@ -18,24 +20,38 @@ const Contact = () => {
                     initial={{ y: 50, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ duration: 0.5, delay: 0.4 }}
-                    className="text-4xl text-gray-800 font-bold mb-10"
+                    className="text-4xl text-gray-800 font-bold mb-10 mt-4"
                 >
                     Contact For Any Query
                 </motion.h1>
 
                 {/* Contact Info */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-20 w-full max-w-7xl mb-8 px-4">
-                    <div>
-                        <h3 className="text-[#FEA116] font-[Pacifico]">Booking---</h3>
-                        <p className="text-gray-600">book@example.com</p>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-20 w-full max-w-7xl mb-10 mt-4 px-4">
+
+
+                    <div className="flex flex-col">
+                        <h3 className="text-[#FEA116] font-[Pacifico] text-lg mb-1">Booking</h3>
+                        <div className="flex items-center space-x-2">
+                            <EnvelopeIcon className="h-5 w-5 text-[#FEA116]" />
+                            <p className="text-gray-600">book@example.com</p>
+                        </div>
                     </div>
-                    <div>
-                        <h3 className="text-[#FEA116] font-[Pacifico]">General---</h3>
-                        <p className="text-gray-600">info@example.com</p>
+
+
+                    <div className="flex flex-col">
+                        <h3 className="text-[#FEA116] font-[Pacifico] text-lg mb-1">General</h3>
+                        <div className="flex items-center space-x-2">
+                            <EnvelopeIcon className="h-5 w-5 text-[#FEA116]" />
+                            <p className="text-gray-600">info@example.com</p>
+                        </div>
                     </div>
-                    <div>
-                        <h3 className="text-[#FEA116] font-[Pacifico]">Technical---</h3>
-                        <p className="text-gray-600">tech@example.com</p>
+
+                    <div className="flex flex-col">
+                        <h3 className="text-[#FEA116] font-[Pacifico] text-lg mb-1">Technical</h3>
+                        <div className="flex items-center space-x-2">
+                            <EnvelopeIcon className="h-5 w-5 text-[#FEA116]" />
+                            <p className="text-gray-600">tech@example.com</p>
+                        </div>
                     </div>
                 </div>
 
@@ -63,27 +79,27 @@ const Contact = () => {
                                 <input
                                     type="text"
                                     placeholder="Your Name"
-                                    className="w-full p-4 border rounded"
+                                    className="w-full p-4 border border-gray-300 focus:outline-none focus:border-[#FEA116] focus:border-2"
                                 />
                                 <input
                                     type="email"
                                     placeholder="Your Email"
-                                    className="w-full p-4 border rounded"
+                                    className="w-full p-4 border border-gray-300 focus:outline-none focus:border-[#FEA116] focus:border-2"
                                 />
                             </div>
                             <input
                                 type="text"
                                 placeholder="Subject"
-                                className="w-full p-4 border rounded"
+                                className="w-full p-4 border border-gray-300 focus:outline-none focus:border-[#FEA116] focus:border-2"
                             />
                             <textarea
                                 placeholder="Message"
                                 rows={4}
-                                className="w-full p-6 border rounded"
+                                className="w-full p-6 border border-gray-300 focus:outline-none focus:border-[#FEA116] focus:border-2"
                             ></textarea>
                             <button
                                 type="submit"
-                                className="w-full bg-[#FEA116] text-white py-4 px-6 rounded a transition duration-300"
+                                className="w-full bg-[#FEA116] text-white py-4 px-6  a transition duration-300 "
                             >
                                 SEND MESSAGE
                             </button>

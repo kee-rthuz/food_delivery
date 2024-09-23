@@ -36,7 +36,7 @@ const Menu = () => {
       {/* Hero Section */}
 
       {/* Menu Section */}
-      <div className="container mx-auto max-w-screen-xl mt-10 p-6">
+      <div className="container mx-auto max-w-screen-xl mt-16 p-6">
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -49,63 +49,91 @@ const Menu = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="text-3xl sm:text-4xl font-semibold text-center mb-10"
+          className="text-3xl sm:text-4xl font-semibold text-center mb-10 mt-4"
         >
           Most Popular Items
         </motion.h2>
         {/* Category Buttons */}
-        <div className="flex flex-wrap justify-center space-x-4 sm:space-x-8 mb-8">
+        <div className="flex flex-wrap justify-center space-x-4 sm:space-x-8 mb-8 ">
+
           <span
             onClick={() => setSelectedCategory('all')}
-            className={`flex items-center space-x-2 cursor-pointer pb-2 ${selectedCategory === 'all' ? 'border-b-2 border-[#FEA116]' : ''}`}
+            className={`flex items-center cursor-pointer pb-2 ${
+              selectedCategory === 'all' ? 'border-b-2 border-[#FEA116]' : ''
+            }`}
           >
-            <span className="text-gray-600">All</span> {/* Black text */}
+            <div className="w-6 h-6 mr-3 grid grid-cols-2 gap-1">
+              <div className="bg-[#FEA116] rounded-sm"></div>
+              <div className="bg-[#FEA116] rounded-sm"></div>
+              <div className="bg-[#FEA116] rounded-sm"></div>
+              <div className="bg-[#FEA116] rounded-sm"></div>
+            </div>
+            <div className="flex flex-col">
+              <span className="text-gray-600">All</span> 
+              <h1 className='text-[#000] font-bold'>Category</h1>
+            </div>
           </span>
+
           <span
             onClick={() => setSelectedCategory('breakfast')}
-            className={`flex items-center space-x-2 cursor-pointer pb-2 ${selectedCategory === 'breakfast' ? 'border-b-2 border-[#FEA116]' : ''}`}
+            className={`flex items-center cursor-pointer pb-2 ${
+              selectedCategory === 'breakfast' ? 'border-b-2 border-[#FEA116]' : ''
+            }`}
           >
-            <FontAwesomeIcon icon={faCoffee} className="text-[#FEA116]" /> {/* Orange icon */}
-            <span className="text-gray-600">Popular Breakfast</span> {/* Black text */}
+            <FontAwesomeIcon icon={faCoffee} className="text-[#FEA116] w-8 h-8 mr-3" />
+            <div className="flex flex-col">
+              <span className="text-gray-600">Popular</span>
+              <h1 className='text-[#000] font-bold'>Breakfast</h1>
+            </div>
           </span>
 
           <span
             onClick={() => setSelectedCategory('lunch')}
-            className={`flex items-center space-x-2 cursor-pointer pb-2 ${selectedCategory === 'lunch' ? 'border-b-4 border-orange-600' : ''}`}
+            className={`flex items-center  cursor-pointer pb-2 ${selectedCategory === 'lunch' ? 'border-b-2 border-[#FEA116]' : ''
+            }`}
           >
-            <FontAwesomeIcon icon={faUtensils} className="text-[#FEA116]" /> {/* Orange icon */}
-            <span className="text-gray-600">Special Lunch</span> {/* Black text */}
+            <FontAwesomeIcon icon={faUtensils} className="text-[#FEA116] w-8 h-8 mr-3" /> 
+            <div className="flex flex-col">
+            <span className="text-gray-600">Special </span> 
+            <h1 className='text-[#000] font-bold'>Luncht</h1>
+            </div>
           </span>
 
           <span
             onClick={() => setSelectedCategory('dinner')}
-            className={`flex items-center space-x-2 cursor-pointer pb-2 ${selectedCategory === 'dinner' ? 'border-b-4 border-orange-600' : ''}`}
+            className={`flex items-center  cursor-pointer pb-2 ${selectedCategory === 'dinner' ? 'border-b-2 border-[#FEA116]' : ''}`}
           >
-            <FontAwesomeIcon icon={faWineGlassAlt} className="text-[#FEA116]" /> {/* Orange icon */}
-            <span className="text-gray-600">Lovely Dinner</span> {/* Black text */}
+            <FontAwesomeIcon icon={faWineGlassAlt} className="text-[#FEA116] w-8 h-8 mr-3" /> 
+            <div className="flex flex-col">
+            <span className="text-gray-600">Lovely </span> 
+            <h1 className='text-[#000] font-bold'>Dinner</h1>
+            </div>
           </span>
         </div>
 
+
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-          {filteredMenuItems.map((item) => (
-            <motion.div
-              key={item.id}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="flex items-center justify-between border-b-2 py-4"
-            >
-              <div className="flex items-center space-x-4">
-                <img src={item.image} alt={item.name} className="w-16 h-16 object-cover rounded-full" />
-                <div>
-                  <h3 className="text-lg font-bold text-black">{item.name}</h3>
-                  <p className="text-gray-500">{item.description}</p>
-                </div>
-              </div>
-              <div className="text-[#FEA116] font-bold text-xl">${item.price}</div>
-            </motion.div>
-          ))}
+  {filteredMenuItems.map((item) => (
+    <motion.div
+      key={item.id}
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+      className="flex items-start space-x-4 py-4"
+    >
+      <img src={item.image} alt={item.name} className="w-18 h-18 object-cover flex-shrink-0" />
+      <div className="flex-grow">
+        <div className="flex justify-between items-start border-b mt-2">
+          <h3 className="text-xl font-bold text-black ">{item.name}</h3>
+          <div className="text-[#FEA116] font-bold text-xl  ml-2">${item.price}</div>
         </div>
+        <p className="text-gray-500 mt-1 text-sm  mt-2">{item.description}</p>
+      </div>
+    </motion.div>
+  ))}
+</div>
+
+
       </div>
     </div>
   );

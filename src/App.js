@@ -11,6 +11,9 @@ import Home from './compontes/Home';
 import Menu from './compontes/Menu';
 import OurTeam from './compontes/OurTeam';
 
+import About from './compontes/about';
+// import About from './compontes/about/teamDetails';
+
 
 
 function App() {
@@ -29,7 +32,10 @@ function App() {
             <Route path="/service"  element={<Services />} />
             <Route path="/booking"  element={<Reservation />} />
             <Route path="/menu"  element={<Menu />} />
-            <Route path="/ourteam"  element={< OurTeam/>} />
+            <Route path="/our-team"  element={<OurTeam/>} />
+
+            <Route path="/about"  element={< About/>} />
+
 
 
 

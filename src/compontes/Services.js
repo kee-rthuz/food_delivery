@@ -63,7 +63,7 @@ const Services = () => {
     return (
         <div>
             {/* Our Services Section */}
-            <div className="flex flex-col items-center justify-center py-20">
+            <div className="flex flex-col items-center justify-center py-20 mt-4 ">
                 <motion.h2
                     initial={{ y: 50, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
@@ -76,13 +76,13 @@ const Services = () => {
                     initial={{ y: 50, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ duration: 0.5, delay: 0.4 }}
-                    className="text-4xl text-gray-800 font-bold mb-10"
+                    className="text-4xl text-gray-800 font-bold mb-10 mt-4"
                 >
                     Explore Our Services
                 </motion.h1>
 
                 {/* Animated Service Cards */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 px-8 mx-auto max-w-screen-xl">
+                <div className="grid grid-cols-1 md:grid-cols-2 mt-4 lg:grid-cols-4 gap-8 px-8 mx-auto max-w-screen-xl ">
                     {services.map((service, index) => (
                         <motion.div
                             key={index}
@@ -90,11 +90,11 @@ const Services = () => {
                             initial="hidden"
                             animate="visible"
                             custom={index}
-                            className="bg-white p-6 shadow-lg flex flex-col items-center group hover:bg-[#FEA116] transition-colors duration-300"
+                            className="bg-white p-8 shadow-lg flex flex-col items-start group hover:bg-[#FEA116] transition-colors duration-300 min-h-[300px] w-full"
                         >
-                            <div className="text-4xl text-[#FEA116] mb-4 group-hover:text-white">{service.icon}</div>
-                            <h3 className="text-xl font-semibold text-gray-800 group-hover:text-white">{service.title}</h3>
-                            <p className="text-gray-600 mt-2 text-center group-hover:text-white">{service.description}</p>
+                            <div className="text-5xl text-[#FEA116] mb-6 group-hover:text-white self-start">{service.icon}</div>
+                            <h3 className="text-2xl font-semibold text-gray-800 group-hover:text-white mb-4 text-left">{service.title}</h3>
+                            <p className="text-gray-600 mt-2 text-left group-hover:text-white">{service.description}</p>
                         </motion.div>
                     ))}
                 </div>

@@ -53,11 +53,11 @@ function Testimonial() {
   return (
     <div  className="py-12 mt-10">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-10">
+        <div className="text-center mb-14">
           <h5 className="text-[#FEA116] text-2xl font-[Pacifico] mb-2">
             Testimonial
           </h5>
-          <h1 className="text-4xl text-gray-800 font-bold mb-10">Our Clients Say!!!</h1>
+          <h1 className="text-4xl text-gray-800 font-bold mt-4 mb-10">Our Clients Say!!!</h1>
         </div>
    
       <TestimonialCarousel testimonials={testimonials} />

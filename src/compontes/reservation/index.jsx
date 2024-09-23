@@ -82,14 +82,14 @@ const Reservation = () => {
       transition={{ duration: 0.8 }}
     >
       <h5 className="text-[#FEA116] text-2xl font-[Pacifico] mb-2">Reservation</h5>
-      <h1 className="text-white text-4xl font-bold mb-6">Book A Table Online</h1>
+      <h1 className="text-white text-4xl font-bold mt-4 mb-6">Book A Table Online</h1>
       <form onSubmit={handleSubmit}>
         <div className="space-y-4 w-full">
           <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4">
             <div className="w-full md:w-1/2">
               <input
                 type="text"
-                className="w-full p-3 bg-white text-gray-900 rounded"
+                className="w-full p-5 bg-white  focus:outline-none focus:border-[#FEA116] focus:border-2"
                 placeholder="Your Name"
                 name="name"
                 value={formData.name}
@@ -100,7 +100,7 @@ const Reservation = () => {
             <div className="w-full md:w-1/2">
               <input
                 type="email"
-                className="w-full p-3 bg-white text-gray-900 rounded"
+                className="w-full p-5 bg-white  focus:outline-none focus:border-[#FEA116] focus:border-2"
                 placeholder="Your Email"
                 name="email"
                 value={formData.email}
@@ -113,7 +113,7 @@ const Reservation = () => {
             <div className="w-full md:w-1/2">
               <input
                 type="datetime-local"
-                className="w-full p-3 bg-white text-gray-900 rounded"
+                className="w-full p-5 bg-white  focus:outline-none focus:border-[#FEA116] focus:border-2"
                 name="dateTime"
                 value={formData.dateTime}
                 onChange={handleChange}
@@ -122,7 +122,7 @@ const Reservation = () => {
             </div>
             <div className="w-full md:w-1/2">
               <select
-                className="w-full p-3 bg-white text-gray-900 rounded"
+                className="w-full p-5 bg-white  focus:outline-none focus:border-[#FEA116] focus:border-2"
                 name="people"
                 value={formData.people}
                 onChange={handleChange}
@@ -135,7 +135,7 @@ const Reservation = () => {
           </div>
           <div>
             <textarea
-              className="w-full p-3 bg-white text-gray-900 rounded"
+              className="w-full p-3 bg-white  focus:outline-none focus:border-[#FEA116] focus:border-2"
               rows="4"
               placeholder="Special Request"
               name="message"
@@ -144,7 +144,7 @@ const Reservation = () => {
             ></textarea>
           </div>
           <div>
-            <button className="w-full bg-[#FEA116] text-white py-4 rounded " type="submit">
+            <button className="w-full bg-[#FEA116] text-white py-4  " type="submit">
               BOOK NOW
             </button>
           </div>
