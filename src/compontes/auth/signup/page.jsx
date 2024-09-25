@@ -1,19 +1,20 @@
 import React, { useState } from 'react';
 import signupImage from '../../../assets/signup.jpg';
 import Bg from '../../../assets/google.png';
+import { TextField, Button } from '@mui/material';
 
 const SignupPage = () => {
   const [name, setName] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
 
   const handleSignup = (e) => {
     e.preventDefault();
     // Add your signup logic here
-    if (name && password.length >= 6) {
+    if (name && email) {
       setMessage("Signup successful!");
     } else {
-      setMessage("Please fill all fields and ensure password is at least 6 characters.");
+      setMessage("Please fill all fields and ensure @gmail.com.");
     }
   };
 
@@ -25,45 +26,66 @@ const SignupPage = () => {
   return (
     <div className="flex min-h-screen bg-gray-100">
       <div className="m-auto bg-white p-4 sm:p-8 flex flex-col lg:flex-row rounded-lg shadow-lg w-full max-w-4xl">
-        <div className="hidden lg:block w-1/2 pr-8">
+        <div className="lg:w-1/2 lg:pr-8 mb-8 lg:mb-0">
           <img
             src={signupImage}
             alt="Food presentation"
-            className="rounded-lg object-cover h-full w-full"
+            className="rounded-lg object-cover w-full h-auto max-h-[50vh] lg:h-full"
           />
         </div>
         <div className="w-full lg:w-1/2">
           <h1 className="text-center text-3xl sm:text-4xl text-[#FEA116] font-[Pacifico] mb-4 sm:mb-6">Welcome to ShopUrFood</h1>
           <h2 className="text-center text-xl sm:text-2xl font-bold mb-4 sm:mb-6">Sign Up</h2>
           <form onSubmit={handleSignup} className="space-y-4">
-            <div className="mb-4">
-              <input
-                type="text"
-                placeholder="Name"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                className="w-full p-2 border rounded"
-                required
-              />
+            <TextField
+              fullWidth
+              label="Name"
+              variant="outlined"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              required
+              className="mb-4 [&_.MuiInputLabel-root.Mui-focused]:text-black"
+              sx={{
+                '& .MuiOutlinedInput-root': {
+                  '&:hover fieldset': {
+                    borderColor: '#FEA116',
+                  },
+                  '&.Mui-focused fieldset': {
+                    borderColor: '#FEA116',
+                    borderWidth: '2px',
+                  },
+                },
+              }}
+            />
+            <TextField
+              fullWidth
+              label="Email"
+              variant="outlined"
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+              className="mb-4 [&_.MuiInputLabel-root.Mui-focused]:text-black"
+              sx={{
+                '& .MuiOutlinedInput-root': {
+                  '&:hover fieldset': {
+                    borderColor: '#FEA116',
+                  },
+                  '&.Mui-focused fieldset': {
+                    borderColor: '#FEA116',
+                    borderWidth: '2px',
+                  },
+                },
+              }}
+            />
+            <div className="flex justify-center">
+              <button
+                type="submit"
+                className="bg-[#FEA116] text-white text-lg w-full sm:w-[200px] px-4 py-2 mt-2 sm:mt-6 rounded hover:bg-[#e89104] transition-colors duration-300"
+              >
+                Create Account
+              </button>
             </div>
-
-            <div className="mb-4">
-              <input
-                type="password"
-                placeholder="Password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                className="w-full p-2 border rounded"
-                required
-                minLength={6}
-              />
-            </div>
-            <button
-              type="submit"
-              className="w-full bg-orange-500 text-white p-2 rounded hover:bg-orange-600"
-            >
-              Sign Up
-            </button>
           </form>
           {message && (
             <p className={`mt-4 text-center ${message.includes('successful') ? 'text-green-600' : 'text-red-600'}`}>
@@ -71,12 +93,12 @@ const SignupPage = () => {
             </p>
           )}
           <div className="mt-6 text-center">
-            <p className="text-gray-500">OR</p>
-            <div className="flex justify-center items-center mt-2">
+            <p className="text-gray-500 text-center -mt-2">OR</p>
+            <div className="flex justify-center items-center mt-4">
               <button
                 type="button"
                 onClick={handleGoogleSignIn}
-                className="w-full py-3 px-4 h-14 text-gray-500 rounded-md border border-gray-300 transition duration-300 text-sm font-medium flex items-center justify-center focus:outline-none focus:border-[#FEA116] focus:border-2 hover:border-[#FEA116]"
+                className="w-full py-3 px-4 h-14 text-gray-500 rounded-[3px] border border-gray-400 transition duration-300 text-sm font-medium flex items-center justify-center focus:outline-none focus:border-[#FEA116] focus:border-2 hover:border-[#FEA116]"
               >
                 <img 
                   src={Bg} 
@@ -88,7 +110,7 @@ const SignupPage = () => {
             </div>
           </div>
           <div className="mt-6 text-center">
-            <a href="/login" className="text-orange-500 hover:underline">
+            <a href="/login" className="text-[#FEA116] hover:underline">
               Already have an account? Login here!
             </a>
           </div>

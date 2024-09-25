@@ -37,11 +37,16 @@ const LoginPage = () => {
           <h1 className="text-center text-3xl sm:text-4xl text-[#FEA116] font-[Pacifico] mb-4 sm:mb-6">Welcome to ShopUrFood</h1>
           <h2 className="text-center text-xl sm:text-2xl font-bold mb-4 sm:mb-6">LOGIN</h2>
           <form onSubmit={handleLogin} className="space-y-4">
-            <TextField
-              type="tel"
-              placeholder="Phone Number"
+          <TextField
               fullWidth
+              label="Phone Number"
               variant="outlined"
+              value={phoneNumber}
+              onChange={(e) => setPhoneNumber(e.target.value)}
+              required
+              className="mb-4 [&_.MuiInputLabel-root.Mui-focused]:text-black"
+            
+
               sx={{
                 '& .MuiOutlinedInput-root': {
                   '&:hover fieldset': {
@@ -54,7 +59,7 @@ const LoginPage = () => {
                 },
               }}
             />
-            <p className="text-gray-500 text-center">OR</p>
+            <p className="text-gray-500 text-center ">OR</p>
 
             <div className="flex justify-center items-center">
               <button
@@ -71,7 +76,7 @@ const LoginPage = () => {
               </button>
             </div>
 
-            <div className="flex justify-center">
+            <div className="flex justify-center ">
               <button
                 type="submit"
                 className="bg-[#FEA116] text-white text-lg w-full sm:w-[200px] px-4 py-2 mt-4 sm:mt-8 rounded hover:bg-[#e89104] transition-colors duration-300"
@@ -87,7 +92,7 @@ const LoginPage = () => {
             </p>
           )}
 
-          <div className="mt-6 text-center">
+          <div className="mt-12 text-center">
             <a href="/signup" className="text-[#FEA116] hover:underline">
               Create your ShopUrFood Account!
             </a>
