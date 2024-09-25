@@ -4,17 +4,17 @@ import loginImage from '../../../assets/login.jpg';
 import Bg from '../../../assets/google.png'
 
 const LoginPage = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
   const [message, setMessage] = useState("");
+
 
   const handleLogin = (e) => {
     e.preventDefault();
     // Add your login logic here
-    if (email && password.length >= 6) {
+    if (phoneNumber && phoneNumber.length >= 10) {
       setMessage("Login successful!");
     } else {
-      setMessage("Invalid email or password.");
+      setMessage("Invalid phone number.");
     }
   };
 
@@ -57,19 +57,19 @@ const LoginPage = () => {
             <p className="text-gray-500 text-center">OR</p>
 
             <div className="flex justify-center items-center">
-  <button
-    type="button"
-    onClick={handleGoogleSignIn}
-    className="w-full py-3 px-4 h-14 text-gray-500 rounded-md border border-gray-300 transition duration-300 text-sm font-medium flex items-center justify-center focus:outline-none focus:border-[#FEA116] focus:border-2 hover:border-[#FEA116]"
-  >
-    <img 
-      src={Bg} 
-      alt="Google logo" 
-      className="w-6 h-6 mr-2"
-    />
-    Continue with Google
-  </button>
-</div>
+              <button
+                type="button"
+                onClick={handleGoogleSignIn}
+                className="w-full py-3 px-4 h-14 text-gray-500 rounded-[3px] border border-gray-400 transition duration-300 text-sm font-medium flex items-center justify-center focus:outline-none focus:border-[#FEA116] focus:border-2 hover:border-[#FEA116]"
+              >
+                <img 
+                  src={Bg} 
+                  alt="Google logo" 
+                  className="w-6 h-6 mr-2"
+                />
+                Continue with Google
+              </button>
+            </div>
 
             <div className="flex justify-center">
               <button
@@ -80,6 +80,12 @@ const LoginPage = () => {
               </button>
             </div>
           </form>
+
+          {message && (
+            <p className={`mt-4 text-center ${message.includes('successful') ? 'text-green-600' : 'text-red-600'}`}>
+              {message}
+            </p>
+          )}
 
           <div className="mt-6 text-center">
             <a href="/signup" className="text-[#FEA116] hover:underline">
