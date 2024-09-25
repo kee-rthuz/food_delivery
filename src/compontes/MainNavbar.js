@@ -1,12 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import { UtensilsCrossed, ChevronDown } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
   const [pagesDropdownOpen, setPagesDropdownOpen] = useState(false);
   const [visible, setVisible] = useState(false);
+  const navigate = useNavigate();
 
   const togglePagesDropdown = () => {
     setPagesDropdownOpen(!pagesDropdownOpen);
+  };
+
+  const handleRestoranClick = () => {
+    navigate('/');
   };
 
   useEffect(() => {
@@ -26,10 +32,14 @@ const Navbar = () => {
     } bg-gray-900 text-white py-4 px-6 hidden md:flex md:items-center md:justify-between`}>
       <div className="flex items-center">
         <UtensilsCrossed className="text-[#FEA116] mr-2" size={54} />
-        <span className="text-4xl font-bold text-[#FEA116]">Restoran</span>
+        <span 
+          className="text-4xl font-bold text-[#FEA116] cursor-pointer hover:text-[#FFA500]"
+          onClick={handleRestoranClick}
+        >
+          Restoran
+        </span>
       </div>
       <div className="flex items-center space-x-6">
-        <a href="/" className="hover:text-[#FEA116]">HOME</a>
         <a href="/service" className="hover:text-[#FEA116]">SERVICE</a>
         <a href="/menu" className="hover:text-[#FEA116]">MENU</a>
         <div className="relative">
@@ -51,7 +61,7 @@ const Navbar = () => {
         </div>
         <a href="/contact" className="hover:text-[#FEA116]">CONTACT</a>
         <a href="/login" className="hover:text-[#FEA116]">LOGIN</a>
-        <button className="bg-[#FEA116] text-white px-4 py-2 rounded">
+        <button className="bg-[#FEA116] text-white px-4 py-2 rounded hover:bg-[#FFA500]">
           ORDER NOW
         </button>
       </div>

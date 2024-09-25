@@ -3,7 +3,7 @@ import { Menu, ChevronDown, UtensilsCrossed } from 'lucide-react';
 import { motion } from 'framer-motion';
 import backgroundImage from '../assets/bg-hero.jpg';
 import mealImage from '../assets/hero.png';
-import { BrowserRouter as Router, Route, Switch, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch, useLocation, Link } from 'react-router-dom';
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -21,7 +21,7 @@ const Header = () => {
   const getPageTitle = () => {
     switch (location.pathname) {
       case '/':
-        return 'Home';
+        return 'Restoran';
       case '/about':
         return 'About';
       case '/service':
@@ -66,10 +66,11 @@ const Header = () => {
                 <div className="flex justify-between items-center">
                   <div className="flex items-center">
                     <UtensilsCrossed className="text-[#FEA116] mr-2" size={36} />
-                    <span className="text-3xl font-bold text-[#FEA116]">Restoran</span>
+                    <Link to="/" className="text-3xl font-bold text-[#FEA116] cursor-pointer hover:text-yellow-500 transition-colors duration-300">
+                      Restoran
+                    </Link>
                   </div>
                   <div className="hidden md:flex space-x-6 text-sm font-medium">
-                    <a href="/" className="hover:text-[#FEA116]">HOME</a>
                     <a href="/service" className="hover:text-[#FEA116]">SERVICE</a>
                     <a href="/menu" className="hover:text-[#FEA116]">MENU</a>
                     <div className="relative">
@@ -107,7 +108,6 @@ const Header = () => {
             {mobileMenuOpen && (
               <div className="md:hidden relative z-50 bg-gray-900 bg-opacity-90">
                 <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                  <a href="/" className="block px-3 py-2 rounded-md text-base font-medium text-white hover:text-[#FEA116]">HOME</a>
                   <a href="/service" className="block px-3 py-2 rounded-md text-base font-medium text-white hover:text-[#FEA116]">SERVICE</a>
                   <a href="/menu" className="block px-3 py-2 rounded-md text-base font-medium text-white hover:text-[#FEA116]">MENU</a>
                   <button
@@ -173,7 +173,7 @@ const Header = () => {
                 {getPageTitle()}
               </motion.h1>
               <div className="flex justify-center space-x-2 text-sm text-[#FEA116]">
-                <a href="/" className="hover:text-[#FEA116]">HOME</a>
+                <Link to="/" className="hover:text-[#FEA116]">HOME</Link>
                 <span>/</span>
                 <a href="#" className="hover:text-[#FEA116]">PAGES</a>
                 <span>/</span>
