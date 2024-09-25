@@ -14,7 +14,7 @@ function Footer() {
           <div>
             <h4 className="text-2xl font-[Pacifico] text-[#FEA116] mb-4">Company</h4>
             <ul className="space-y-2 text-white">
-              {['About Us', 'Contact Us', 'Reservation', 'Privacy Policy', 'Terms & Condition'].map((item) => (
+              {['About Us', 'Contact Us', 'Order', 'Privacy Policy', 'Terms & Condition'].map((item) => (
                 <li key={item}>
                   <a href="#" className="hover:text-[#FEA116] flex items-center">
                     <span className="text-[#FEA116] mr-2">▸</span> {item}

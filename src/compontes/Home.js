@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import { motion, useAnimation } from 'framer-motion';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUserLarge, faUtensils, faCartPlus, faHeadset } from '@fortawesome/free-solid-svg-icons';
-import Reservation from './reservation';
+import FoodOrder from './Order';
 import TestimonialPage from './testimonial';
 import About from '../compontes/about/aboutDetails';
 import Menu from './Menu';
@@ -125,7 +125,7 @@ const Home = () => {
                 animate={reservationControls}
                 transition={{ duration: 0.5 }}
             >
-                <Reservation />
+                <FoodOrder />
             </motion.div>
 
             <motion.div

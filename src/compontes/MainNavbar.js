@@ -30,7 +30,6 @@ const Navbar = () => {
       </div>
       <div className="flex items-center space-x-6">
         <a href="/" className="hover:text-[#FEA116]">HOME</a>
-        <a href="/about" className="hover:text-[#FEA116]">ABOUT</a>
         <a href="/service" className="hover:text-[#FEA116]">SERVICE</a>
         <a href="/menu" className="hover:text-[#FEA116]">MENU</a>
         <div className="relative">
@@ -43,15 +42,17 @@ const Navbar = () => {
           </button>
           {pagesDropdownOpen && (
             <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50">
-              <a href="/booking" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Booking</a>
+              <a href="/about" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">About</a>
+              <a href="/order" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Order</a>
               <a href="/our-team" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Our Team</a>
               <a href="/testimonial" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Testimonial</a>
             </div>
           )}
         </div>
         <a href="/contact" className="hover:text-[#FEA116]">CONTACT</a>
+        <a href="/login" className="hover:text-[#FEA116]">LOGIN</a>
         <button className="bg-[#FEA116] text-white px-4 py-2 rounded">
-          BOOK A TABLE
+          ORDER NOW
         </button>
       </div>
     </nav>
