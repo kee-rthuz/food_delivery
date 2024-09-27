@@ -16,6 +16,8 @@ import About from './compontes/about';
 import DineIn from './compontes/DineIn';
 import { useNavbarVisibility } from './hooks/useNavbarVisibility';
 
+import OrderOnline from './compontes/OrderOnline'
+
 function App() {
   return (
     <Router>
@@ -45,6 +47,8 @@ function AppContent() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/about" element={<About />} />
         <Route path="/dine-in" element={<DineIn />} />
+        <Route path="/orders-online" element={<OrderOnline />} />
+
       </Routes>
       {!isAuthPage && showNavbar && <Footer />}
     </div>

@@ -34,6 +34,8 @@ const Header = () => {
         return 'Service';
       case '/dine-in':
         return 'Dine In';
+        case '/orders-online':
+          return 'Orders Online';
       case '/order':
         return 'Order';
       case '/our-team':
