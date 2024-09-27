@@ -4,11 +4,17 @@ import { useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
   const [pagesDropdownOpen, setPagesDropdownOpen] = useState(false);
+  const [restaurantDropdownOpen, setRestaurantDropdownOpen] = useState(false);
+
   const [visible, setVisible] = useState(false);
   const navigate = useNavigate();
 
   const togglePagesDropdown = () => {
     setPagesDropdownOpen(!pagesDropdownOpen);
+  };
+
+  const toggleRestaurantDropdown = () => {
+    setRestaurantDropdownOpen(!restaurantDropdownOpen);
   };
 
   const handleRestoranClick = () => {
@@ -41,7 +47,30 @@ const Navbar = () => {
       </div>
       <div className="flex items-center space-x-6">
         <a href="/service" className="hover:text-[#FEA116]">SERVICE</a>
-        <a href="/menu" className="hover:text-[#FEA116]">MENU</a>
+        {/* <a href="/restorant" className="hover:text-[#FEA116]">RESTORANT</a> */}
+
+
+
+        <div className="relative">
+          <button
+            onClick={toggleRestaurantDropdown}
+            className="flex items-center hover:text-[#FEA116] focus:outline-none"
+          >
+            RESTAURANT
+            <ChevronDown className="ml-1 h-4 w-4" />
+          </button>
+          {restaurantDropdownOpen && (
+            <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50">
+              <a href="/dine-in" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Dine In</a>
+              <a href="/orders-online" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Orders Online</a>
+              <a href="/add-restaurant" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Add Restaurant</a>
+            </div>
+          )}
+        </div>
+
+
+
+{/* ------------------------------------------------------------------------- */}
         <div className="relative">
           <button
             onClick={togglePagesDropdown}
@@ -59,6 +88,8 @@ const Navbar = () => {
             </div>
           )}
         </div>
+
+
         <a href="/contact" className="hover:text-[#FEA116]">CONTACT</a>
         <a href="/login" className="hover:text-[#FEA116]">LOGIN</a>
         <button className="bg-[#FEA116] text-white px-4 py-2 rounded hover:bg-[#FFA500]">

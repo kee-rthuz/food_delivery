@@ -8,6 +8,8 @@ import { BrowserRouter as Router, Route, Switch, useLocation, Link } from 'react
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [pagesDropdownOpen, setPagesDropdownOpen] = useState(false);
+  const [restaurantDropdownOpen, setRestaurantDropdownOpen] = useState(false);
+
   const location = useLocation();
 
   const toggleMobileMenu = () => {
@@ -18,6 +20,10 @@ const Header = () => {
     setPagesDropdownOpen(!pagesDropdownOpen);
   };
 
+  const toggleRestaurantDropdown = () => {
+    setRestaurantDropdownOpen(!restaurantDropdownOpen);
+  };
+
   const getPageTitle = () => {
     switch (location.pathname) {
       case '/':
@@ -26,8 +32,8 @@ const Header = () => {
         return 'About';
       case '/service':
         return 'Service';
-      case '/menu':
-        return 'Menu';
+      case '/dine-in':
+        return 'Dine In';
       case '/order':
         return 'Order';
       case '/our-team':
@@ -72,7 +78,29 @@ const Header = () => {
                   </div>
                   <div className="hidden md:flex space-x-6 text-sm font-medium">
                     <a href="/service" className="hover:text-[#FEA116]">SERVICE</a>
-                    <a href="/menu" className="hover:text-[#FEA116]">MENU</a>
+                    {/* <a href="/restorant" className="hover:text-[#FEA116]">RESTORANT</a> */}
+
+
+
+                    <div className="relative">
+                      <button
+                        onClick={toggleRestaurantDropdown}
+                        className="flex items-center hover:text-[#FEA116] focus:outline-none"
+                      >
+                        RESTAURANT
+                        <ChevronDown className="ml-1 h-4 w-4" />
+                      </button>
+                      {restaurantDropdownOpen && (
+                        <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-10">
+                        <a href="/dine-in" className="block px-4 py-2 text-sm text-[#000] hover:text-[#FEA116] hover:bg-gray-100">Dine In</a>
+                        <a href="/orders-online" className="block px-4 py-2 text-sm text-[#000] hover:text-[#FEA116] hover:bg-gray-100">Orders Online</a>
+                        <a href="/add-restaurant" className="block px-4 py-2 text-sm text-[#000] hover:text-[#FEA116] hover:bg-gray-100">Add Restaurant</a>
+                        </div>
+                      )}
+                    </div>
+
+
+                    {/* ----------------------------------------------------------------- */}
                     <div className="relative">
                       <button
                         onClick={togglePagesDropdown}
@@ -82,12 +110,12 @@ const Header = () => {
                         <ChevronDown className="ml-1 h-4 w-4" />
                       </button>
                       {pagesDropdownOpen && (
-                        <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-10">
-                          <a href="/about" className="block px-4 py-2 text-sm text-[#000] hover:text-[#FEA116] hover:bg-gray-100">About</a>
-                          <a href="/order" className="block px-4 py-2 text-sm text-[#000] hover:text-[#FEA116] hover:bg-gray-100">Order</a>
-                          <a href="/our-team" className="block px-4 py-2 text-sm text-[#000] hover:text-[#FEA116] hover:bg-gray-100">Our Team</a>
-                          <a href="/testimonial" className="block px-4 py-2 text-sm text-[#000] hover:text-[#FEA116] hover:bg-gray-100">Testimonial</a>
-                        </div>
+                        <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50">
+                        <a href="/about" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">About</a>
+                        <a href="/order" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Order</a>
+                        <a href="/our-team" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Our Team</a>
+                        <a href="/testimonial" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Testimonial</a>
+                      </div>
                       )}
                     </div>
                     <a href="/contact" className="hover:text-[#FEA116]">CONTACT</a>
@@ -109,20 +137,19 @@ const Header = () => {
               <div className="md:hidden relative z-50 bg-gray-900 bg-opacity-90">
                 <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
                   <a href="/service" className="block px-3 py-2 rounded-md text-base font-medium text-white hover:text-[#FEA116]">SERVICE</a>
-                  <a href="/menu" className="block px-3 py-2 rounded-md text-base font-medium text-white hover:text-[#FEA116]">MENU</a>
+                  <a href="/restorant" className="block px-3 py-2 rounded-md text-base font-medium text-white hover:text-[#FEA116]">RESTORANT</a>
                   <button
-                    onClick={togglePagesDropdown}
+                    onClick={toggleRestaurantDropdown}
                     className="flex items-center w-full px-3 py-2 rounded-md text-base font-medium text-white hover:text-[#FEA116]"
                   >
-                    PAGES
+                    RESTAURANT
                     <ChevronDown className="ml-1 h-4 w-4" />
                   </button>
-                  {pagesDropdownOpen && (
+                  {restaurantDropdownOpen && (
                     <div className="pl-6 space-y-1">
-                      <a href="/about" className="block px-3 py-2 rounded-md text-sm font-medium text-white hover:text-[#FEA116]">About</a>
-                      <a href="/order" className="block px-3 py-2 rounded-md text-sm font-medium text-white hover:text-[#FEA116]">Order</a>
-                      <a href="/our-team" className="block px-3 py-2 rounded-md text-sm font-medium text-white hover:text-[#FEA116]">Our Team</a>
-                      <a href="/testimonial" className="block px-3 py-2 rounded-md text-sm font-medium text-white hover:text-[#FEA116]">Testimonial</a>
+                      <a href="/dine-in" className="block px-3 py-2 rounded-md text-sm font-medium text-white hover:text-[#FEA116]">Dine In</a>
+                      <a href="/orders-online" className="block px-3 py-2 rounded-md text-sm font-medium text-white hover:text-[#FEA116]">Orders Online</a>
+                      <a href="/add-restaurant" className="block px-3 py-2 rounded-md text-sm font-medium text-white hover:text-[#FEA116]">Add Restaurant</a>
                     </div>
                   )}
                   <a href="/contact" className="block px-3 py-2 rounded-md text-base font-medium text-[#FEA116]">CONTACT</a>

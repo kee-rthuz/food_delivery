@@ -13,6 +13,8 @@ import OurTeam from './compontes/OurTeam';
 import SignupPage from './compontes/auth/signup/page';
 import LoginPage from './compontes/auth/login/page';
 import About from './compontes/about';
+import DineIn from './compontes/DineIn';
+import { useNavbarVisibility } from './hooks/useNavbarVisibility';
 
 function App() {
   return (
@@ -24,12 +26,13 @@ function App() {
 
 function AppContent() {
   const location = useLocation();
+  const showNavbar = useNavbarVisibility();
   const isAuthPage = location.pathname === '/login' || location.pathname === '/signup';
 
   return (
     <div>
-      {!isAuthPage && <MainNavbar />}
-      {!isAuthPage && <Navbar />}
+      {!isAuthPage && showNavbar && <MainNavbar />}
+      {!isAuthPage && showNavbar && <Navbar />}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/contact" element={<Contact />} />
@@ -41,8 +44,9 @@ function AppContent() {
         <Route path="/signup" element={<SignupPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/about" element={<About />} />
+        <Route path="/dine-in" element={<DineIn />} />
       </Routes>
-      {!isAuthPage && <Footer />}
+      {!isAuthPage && showNavbar && <Footer />}
     </div>
   );
 }

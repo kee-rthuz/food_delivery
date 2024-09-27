@@ -5,7 +5,7 @@ import { faUserLarge, faUtensils, faCartPlus, faHeadset } from '@fortawesome/fre
 import FoodOrder from './Order';
 import TestimonialPage from './testimonial';
 import About from '../compontes/about/aboutDetails';
-import Menu from './Menu';
+import Menu from '../compontes/Menu';
 import { useInView } from 'react-intersection-observer';
 
 
@@ -116,7 +116,7 @@ const Home = () => {
                 animate={menuControls}
                 transition={{ duration: 0.5 }}
             >
-                <Menu />
+                <Menu/>
             </motion.div>
 
             <motion.div
