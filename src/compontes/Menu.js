@@ -1,71 +1,64 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCoffee, faUtensils, faWineGlassAlt, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
-import { motion, AnimatePresence } from 'framer-motion';
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
+import { motion } from 'framer-motion';
 import { useLocation, useNavigate } from 'react-router-dom';
-import Bg from '../assets/menu-1.jpg';
-import Bt from '../assets/menu-2.jpg';
-import By from '../assets/menu-3.jpg';
-import Bz from '../assets/menu-4.jpg';
+import { Search } from 'lucide-react';
 
+import Bq from '../assets/fud.avif';
+import Bw from '../assets/fud-1.avif';
+import Be from '../assets/fud-2.avif';
+import Br from '../assets/ff.avif';
+import Bt from '../assets/fud-4.webp';
+import By from '../assets/fud-5.avif';
+import Bu from '../assets/fud-6.avif';
+import Bi from '../assets/fud-7.avif';
 
+const SearchInput = () => {
+  return (
+    <div className="flex justify-center items-center w-full">
+      <div className="relative max-w-md w-full">
+        <input
+          type="text"
+          placeholder="Search for food"
+          className="w-full py-2 px-4 pr-10 border border-[#FEA116] rounded-md shadow-sm focus:outline-none focus:ring-1 focus:ring-[#FEA116] focus:border-[#FEA116]"
+        />
+        <div className="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
+          <Search className="h-5 w-5 text-gray-400" />
+        </div>
+      </div>
+    </div>
+  );
+};
 
-
-const Menu = () => {
-  const [selectedCategory, setSelectedCategory] = useState('all');
+const CombinedMenu = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  const { restaurantId, restaurantName } = location.state || {};
-
-  const [menuItems, setMenuItems] = useState([]);
-
-  useEffect(() => {
-    // Simulating an API call to fetch menu items for the specific restaurant
-    const fetchMenuItems = async () => {
-      // Replace this with an actual API call in your implementation
-      const dummyMenuItems = [
-        { id: 1, category: 'breakfast', name: 'Chicken Burger', price: 115, image: Bg, description: 'Delicious chicken burger with fresh vegetables' },
-        { id: 2, category: 'lunch', name: 'Vegetarian Pizza', price: 125, image: Bt, description: 'Crispy vegetarian pizza with a variety of toppings' },
-        { id: 3, category: 'dinner', name: 'Grilled Salmon', price: 180, image: By, description: 'Fresh grilled salmon with lemon butter sauce' },
-        { id: 4, category: 'breakfast', name: 'Pancake Stack', price: 95, image: Bz, description: 'Fluffy pancakes served with maple syrup' },
-      ];
-
-      // Filter menu items based on restaurantId if needed
-      const filteredItems = restaurantId 
-        ? dummyMenuItems.filter(item => item.id % 2 === restaurantId % 2) 
-        : dummyMenuItems;
-
-      setMenuItems(filteredItems);
-    };
-
-    fetchMenuItems();
-  }, [restaurantId]);
+  const { restaurantName } = location.state || {};
 
   const handleBackClick = () => {
     navigate(-1);
   };
 
-  const categoryButtons = [
-    { id: 'all', icon: (
-      <div className="w-6 h-6 mr-3 grid grid-cols-2 gap-1">
-        <div className="bg-[#FEA116] rounded-sm"></div>
-        <div className="bg-[#FEA116] rounded-sm"></div>
-        <div className="bg-[#FEA116] rounded-sm"></div>
-        <div className="bg-[#FEA116] rounded-sm"></div>
-      </div>
-    ), label: 'All', subLabel: 'Category' },
-    { id: 'breakfast', icon: <FontAwesomeIcon icon={faCoffee} className="text-[#FEA116] w-8 h-8 mr-3" />, label: 'Popular', subLabel: 'Breakfast' },
-    { id: 'lunch', icon: <FontAwesomeIcon icon={faUtensils} className="text-[#FEA116] w-8 h-8 mr-3" />, label: 'Special', subLabel: 'Lunch' },
-    { id: 'dinner', icon: <FontAwesomeIcon icon={faWineGlassAlt} className="text-[#FEA116] w-8 h-8 mr-3" />, label: 'Lovely', subLabel: 'Dinner' },
+  const popularCuisines = [
+    { name: 'Biryani', image: Bq },
+    { name: 'Rolls', image: Bw },
+    { name: 'Pizzas', image: Be },
+    { name: 'Burger', image: Br },
+    { name: 'Tea', image: Bt },
+    { name: 'Chinese', image: By },
+    { name: 'Cake', image: Bu },
+    { name: 'Dessert', image: Bi },
   ];
 
-  const filteredMenuItems = selectedCategory === 'all'
-    ? menuItems
-    : menuItems.filter(item => item.category === selectedCategory);
+  const handleCuisineClick = (cuisineName) => {
+    console.log(`Clicked on ${cuisineName}`);
+    // Add your logic here, e.g., navigate to a specific page or filter results
+  };
 
   return (
     <div className="container mx-auto max-w-screen-xl mt-4 p-6">
-      <div className="flex justify-between items-center mb-6">
+      <div className="flex flex-col md:flex-row justify-between items-center mb-6 space-y-4 md:space-y-0">
         <button
           onClick={handleBackClick}
           className="flex items-center text-[#FEA116] hover:text-[#FEA116] transition-colors duration-200"
@@ -78,63 +71,38 @@ const Menu = () => {
         </h1>
       </div>
 
-      <motion.div 
-        className="flex flex-wrap justify-center space-x-4 sm:space-x-8 mb-8"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: 0.4 }}
-      >
-        {categoryButtons.map((button) => (
-          <motion.span
-            key={button.id}
-            onClick={() => setSelectedCategory(button.id)}
-            className={`flex items-center cursor-pointer pb-2 ${
-              selectedCategory === button.id ? 'border-b-2 border-[#FEA116]' : ''
-            }`}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            {button.icon}
-            <div className="flex flex-col">
-              <span className="text-gray-600">{button.label}</span>
-              <h1 className='text-[#000] font-bold'>{button.subLabel}</h1>
-            </div>
-          </motion.span>
-        ))}
-      </motion.div>
+      <div className="mb-8">
+        <SearchInput />
+      </div>
 
       <motion.div 
-        className="grid grid-cols-1 md:grid-cols-2 gap-5"
-        layout
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
+        className="mb-8"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       >
-        <AnimatePresence>
-          {filteredMenuItems.map((item) => (
-            <motion.div
-              key={item.id}
-              layout
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.8 }}
-              transition={{ duration: 0.3 }}
-              className="flex items-start space-x-4 py-4"
+        <h2 className="text-2xl font-bold mb-4">Popular Cuisines</h2>
+        <div className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 gap-4">
+          {popularCuisines.map((cuisine, index) => (
+            <button
+              key={index}
+              onClick={() => handleCuisineClick(cuisine.name)}
+              className="flex flex-col items-center group transition-transform duration-200 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-[#FEA116] rounded-lg p-2"
             >
-              <img src={item.image} alt={item.name} className="w-24 h-24 object-cover flex-shrink-0 rounded-md" />
-              <div className="flex-grow">
-                <div className="flex justify-between items-start border-b pb-2">
-                  <h3 className="text-xl font-bold text-black">{item.name}</h3>
-                  <div className="text-[#FEA116] font-bold text-xl ml-2">${item.price}</div>
-                </div>
-                <p className="text-gray-500 mt-2 text-sm">{item.description}</p>
+              <div className="w-20 h-20 rounded-full overflow-hidden mb-2 border-2 border-transparent group-hover:border-[#FEA116] transition-colors duration-200">
+                <img 
+                  src={cuisine.image} 
+                  alt={cuisine.name} 
+                  className="w-full h-full object-cover"
+                />
               </div>
-            </motion.div>
+              <span className="text-sm text-center group-hover:text-[#FEA116] transition-colors duration-200">{cuisine.name}</span>
+            </button>
           ))}
-        </AnimatePresence>
+        </div>
       </motion.div>
     </div>
   );
 };
 
-export default Menu;
+export default CombinedMenu;

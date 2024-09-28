@@ -5,13 +5,13 @@ import { TextField, Button } from '@mui/material';
 
 const SignupPage = () => {
   const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState("");
   const [message, setMessage] = useState('');
 
   const handleSignup = (e) => {
     e.preventDefault();
     // Add your signup logic here
-    if (name && email) {
+    if (name && phoneNumber) {
       setMessage("Signup successful!");
     } else {
       setMessage("Please fill all fields and ensure @gmail.com.");
@@ -57,15 +57,16 @@ const SignupPage = () => {
                 },
               }}
             />
-            <TextField
+          <TextField
               fullWidth
-              label="Email"
+              label="Phone Number"
               variant="outlined"
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              value={phoneNumber}
+              onChange={(e) => setPhoneNumber(e.target.value)}
               required
               className="mb-4 [&_.MuiInputLabel-root.Mui-focused]:text-black"
+            
+
               sx={{
                 '& .MuiOutlinedInput-root': {
                   '&:hover fieldset': {
