@@ -89,7 +89,7 @@ const Navbar = () => {
           )}
         </div>
 
-
+        <a href="/offers" className="hover:text-[#FEA116]">OFFERS</a>
         <a href="/contact" className="hover:text-[#FEA116]">CONTACT</a>
         <a href="/login" className="hover:text-[#FEA116]">LOGIN</a>
         <button className="bg-[#FEA116] text-white px-4 py-2 rounded hover:bg-[#FFA500]">

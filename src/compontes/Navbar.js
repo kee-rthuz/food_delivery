@@ -34,14 +34,18 @@ const Header = () => {
         return 'Service';
       case '/dine-in':
         return 'Dine In';
-        case '/orders-online':
-          return 'Orders Online';
+      case '/orders-online':
+        return 'Orders Online';
+      case '/add-restaurant':
+        return 'Add Restaurant';
       case '/order':
         return 'Order';
       case '/our-team':
         return 'Our Team';
       case '/testimonial':
         return 'Testimonial';
+      case '/offers':
+        return 'Offers';
       case '/contact':
         return 'Contact Us';
       case '/login':
@@ -120,6 +124,7 @@ const Header = () => {
                       </div>
                       )}
                     </div>
+                    <a href="/offers" className="hover:text-[#FEA116]">OFFERS</a>
                     <a href="/contact" className="hover:text-[#FEA116]">CONTACT</a>
                     <a href="/login" className="hover:text-[#FEA116]">LOGIN</a>
                     <button className="bg-[#FEA116] text-white px-4 py-2 rounded text-sm font-medium">ORDER NOW</button>
@@ -154,6 +159,7 @@ const Header = () => {
                       <a href="/add-restaurant" className="block px-3 py-2 rounded-md text-sm font-medium text-white hover:text-[#FEA116]">Add Restaurant</a>
                     </div>
                   )}
+                  <a href="/offers" className="block px-3 py-2 rounded-md text-base font-medium text-white hover:text-[#FEA116]">OFFERS</a>
                   <a href="/contact" className="block px-3 py-2 rounded-md text-base font-medium text-[#FEA116]">CONTACT</a>
                   <a href="/login" className="block px-3 py-2 rounded-md text-base font-medium text-white hover:text-[#FEA116]">LOGIN</a>
                   <button className="w-full bg-[#FEA116] text-white px-5 py-2 rounded text-sm font-medium">ORDER NOW</button>
